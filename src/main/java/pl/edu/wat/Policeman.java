@@ -9,8 +9,8 @@ import lombok.Data;
 @Data
 public class Policeman {
 	@Id
-    @GeneratedValue
-    Long id;
+   	 @GeneratedValue
+    	Long id;
 	@Column
 	String name;
 	@Column
