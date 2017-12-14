@@ -14,6 +14,9 @@ import java.util.Set;
 @Data
 @Entity
 public class User{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
     @NotEmpty
     private String login;
     @NotEmpty
