@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Policeman {
+public class Policeman extends Driver {
 	@Id
    	 @GeneratedValue
     	Long id;
@@ -19,6 +19,10 @@ public class Policeman {
 	String PESEL;
 	@OneToMany
 	Rank rank;
+	@ManyToOne
+    	PoliceStation policeStation;
+	@OneToMany
+    	List<Ticket> tickets;
 	
 	private static int PLID=1;
 	
