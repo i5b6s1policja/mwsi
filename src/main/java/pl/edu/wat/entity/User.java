@@ -13,11 +13,13 @@ import java.util.Set;
  */
 @Data
 @Entity
-public class User extends Policeman {
+public class User{
     @NotEmpty
     private String login;
     @NotEmpty
     private String password;
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<UserRole> roles = new HashSet<>();
+    @OneToOne
+    private Policeman policeman;
 }
