@@ -14,9 +14,6 @@ import java.util.Set;
 @Data
 @Entity
 public class User extends Policeman {
-    @Id
-    @GeneratedValue
-    Long id;
     @NotEmpty
     private String login;
     @NotEmpty

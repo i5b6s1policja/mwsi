@@ -11,9 +11,10 @@ import java.util.List;
  */
 @Entity
 @Data
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Driver {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     Long id;
     @Column
     String name;
