@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Aplikacja na MWSI</title>
 </head>
 <body>
-Tutaj powinna być jakaś treść.
+<form action="#" th:action="@{/search/}" method="get">
+    <input type="submit" value="Wyszukaj kierowcę"/>
+
+</form>
 </body>
 </html>

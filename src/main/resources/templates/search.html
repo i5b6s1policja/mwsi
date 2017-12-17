@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Aplikacja na MWSI</title>
+</head>
+<body>
+<form action="#" th:action="@{/search/findByNameAndSurname}" method="post" th:object="${nameAndSurname}">
+    <table border="1">
+        <tr>
+            <td><label th:text="Imię" /></td>
+            <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="Nazwisko" /></td>
+            <td><input type="text" th:field="*{surname}" /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Szukaj" /></td>
+        </tr>
+    </table>
+</form>
+
+<form action="#" th:action="@{/search/findByDrivingLicense}" method="post" th:object="${drivingLicense}">
+    <table border="1">
+        <tr>
+            <td><label th:text="NumerPrawaJazdy"/></td>
+            <td><input type="text" th:field="*{drivinglicense}"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Szukaj"/> </td>
+        </tr>
+    </table>
+</form>
+
+<form action="#" th:action="@{/search/findByPesel}" method="post" th:object="${pesel}">
+    <table border="1">
+        <tr>
+            <td><label th:text="PESEL"/></td>
+            <td><input type="text" th:field="*{pesel}"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Szukaj"/> </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
+
+
