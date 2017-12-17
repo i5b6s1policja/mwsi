@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista wszystkich kierowców</title>
+</head>
+<body>
+
+
+<div>
+    <h1>Kierowcy:</h1>
+    <form action="#" >
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>PESEL</th>
+                <th>Adres</th>
+                <!--<th>Numer telefonu</th>-->
+                <th>Punkty Karne</th>
+                <th>Numer prawa jazdy</th>
+            </tr>
+            <tr th:each="driver: ${allDrivers}" th:object="${driver}">
+                <!--<tr th:object="${driver}">-->
+                <td th:text="*{id}">-1</td>
+                <td th:text="*{name}">Jan</td>
+                <td th:text="*{surname}">Kowalski</td>
+                <td th:text="*{pesel}">90122512456</td>
+                <td th:text="*{address}">Address</td>
+                <!--<td th:text="*{phoneNumber}">515265324</td>-->
+                <td th:text="*{penaltyPoints}">0</td>
+                <td th:text="*{drivingLicense}"></td>
+                <!--<td><input type="submit" value="Wybierz" /></td>-->
+            </tr>
+        </table>
+    </form>
+
+    <form action="#" th:action="@{/search/}">
+        <input type="submit" value="Powrót do wyszukiwania"/>
+    </form>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
