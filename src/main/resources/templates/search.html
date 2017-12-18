@@ -2,49 +2,79 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Aplikacja na MWSI</title>
+    <title>CEPIK - Policja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script th:src="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<form action="#" th:action="@{/search/findByNameAndSurname}" method="post" th:object="${nameAndSurname}">
-    <table border="1">
-        <tr>
-            <td><label th:text="Imię" /></td>
-            <td><input type="text" th:field="*{name}" /></td>
-        </tr>
-        <tr>
-            <td><label th:text="Nazwisko" /></td>
-            <td><input type="text" th:field="*{surname}" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Szukaj" /></td>
-        </tr>
-    </table>
-</form>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-left">
+            <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                    data-toggle="dropdown" role="button" aria-haspopup="true"
+                                    aria-expanded="false">Menu<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/">HOME</a></li>
+                    <li><a th:href="@{/search}">Wyszukaj kierowcę</a></li>
+                </ul></li>
+        </ul>
+        <div class="navbar-header navbar-right">
+            <a class="navbar-brand" href="#"> CEPIK <i>Policja</i></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row col-12">
+    <form action="#" th:action="@{/search/findByNameAndSurname}" method="post" th:object="${nameAndSurname}">
+        <table style="border: none">
+            <tr>
+                <td><label th:text="Imię" /></td>
+                <td><input class="form-control" type="text" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td><label th:text="Nazwisko" /></td>
+                <td><input class="form-control" type="text" th:field="*{surname}" /></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-primary" type="submit" value="Szukaj" /></td>
+            </tr>
+        </table>
+    </form>
 
-<form action="#" th:action="@{/search/findByDrivingLicense}" method="post" th:object="${drivingLicense}">
-    <table border="1">
-        <tr>
-            <td><label th:text="NumerPrawaJazdy"/></td>
-            <td><input type="text" th:field="*{drivinglicense}"/></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Szukaj"/> </td>
-        </tr>
-    </table>
-</form>
+    <form action="#" th:action="@{/search/findByDrivingLicense}" method="post" th:object="${drivingLicense}">
+        <table style="border: none">
+            <tr>
+                <td><label th:text="'Numer prawa jazdy'"/></td>
+                <td><input class="form-control" type="text" th:field="*{drivinglicense}"/></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-primary" type="submit" value="Szukaj"/> </td>
+            </tr>
+        </table>
+    </form>
 
-<form action="#" th:action="@{/search/findByPesel}" method="post" th:object="${pesel}">
-    <table border="1">
-        <tr>
-            <td><label th:text="PESEL"/></td>
-            <td><input type="text" th:field="*{pesel}"/></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Szukaj"/> </td>
-        </tr>
-    </table>
-</form>
-
+    <form action="#" th:action="@{/search/findByPesel}" method="post" th:object="${pesel}">
+        <table style="border: none">
+            <tr>
+                <td><label th:text="PESEL"/></td>
+                <td><input class="form-control" type="text" th:field="*{pesel}"/></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-primary" type="submit" value="Szukaj"/> </td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</div>
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <p class="navbar-text">
+            © 2017 CEPIK - Policja
+        </p>
+    </div>
+</footer>
 </body>
 </html>
 

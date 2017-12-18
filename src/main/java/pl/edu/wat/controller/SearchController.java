@@ -27,7 +27,7 @@ public class SearchController {
         this.driverRepository = driverRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String search(Model model){
         model.addAttribute("nameAndSurname", new NameAndSurname());
         model.addAttribute("drivingLicense", new DrivingLicense());
