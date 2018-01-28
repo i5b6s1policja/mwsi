@@ -1,6 +1,9 @@
 package pl.edu.wat.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.edu.wat.enums.Brand;
 import pl.edu.wat.enums.Model;
 
@@ -12,14 +15,17 @@ import javax.persistence.*;
  */
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Car {
     @Id
     @GeneratedValue
     Long id;
     @Column
-    Brand brand;
+    String brand;
     @Column
-    Model model;
+    String model;
     @Column
     String vin;
     @Column
