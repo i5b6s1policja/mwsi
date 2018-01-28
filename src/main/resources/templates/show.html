@@ -41,6 +41,7 @@
                 <th>Numer prawa jazdy</th>
                 <th>Odebrane prawo jazdy</th>
                 <th>Zatrzymaj prawo jazdy</th>
+                <th>Dodaj samochód</th>
             </tr>
             <tr th:each="driver: ${allDrivers}" th:object="${driver}">
                 <!--<tr th:object="${driver}">-->
@@ -55,6 +56,7 @@
                 <td class="licenseTaken" th:text="*{drivingLicenseTaken == null || drivingLicenseTaken == false} ? 'Nie' : 'Tak'"></td>
                 <td th:if="*{drivingLicenseTaken == null || drivingLicenseTaken == false}"><input class="stopLicense btn btn-primary" type="button" value="Zatrzymaj"/></td>
                 <td th:unless="*{drivingLicenseTaken == null || drivingLicenseTaken == false}"><input class="giveLicense btn btn-primary" type="button" value="Oddaj"/></td>
+                <td><a th:href="@{'/car/add/' + *{id}}" class="btn btn-primary">Dodaj samochód</a></td>
                 <!--<td><input type="submit" value="Wybierz" /></td>-->
             </tr>
         </table>
