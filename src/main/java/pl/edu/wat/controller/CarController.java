@@ -107,4 +107,19 @@ public class CarController {
         carRepository.save(car);
         return "home";
     }
+
+    @GetMapping("/stolen/{id}")
+    public String setStolen(@PathVariable("id") Long id){
+        Car car = carRepository.findOne(id);
+        car.setStolen(true);
+        carRepository.save(car);
+        return "home";
+    }
+    @GetMapping("/notStolen/{id}")
+    public String setNotStolen(@PathVariable("id") Long id){
+        Car car = carRepository.findOne(id);
+        car.setStolen(false);
+        carRepository.save(car);
+        return "home";
+    }
 }

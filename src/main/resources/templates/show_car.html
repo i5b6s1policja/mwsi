@@ -42,9 +42,10 @@
                     <th>Ubezpieczenie</th>
                     <th>Czy skradziony</th>
                     <th>Badania techniczne</th>
+                    <th>Ustaw jako kradziony</th>
                 </tr>
                 <tr th:object="${car}">
-                    <td th:text="*{id}">-1</td>
+                    <td class="idCar" th:text="*{id}">-1</td>
                     <td th:text="*{brand}">Jan</td>
                     <td th:text="*{model}">Kowalski</td>
                     <td th:text="*{vin}">90122512456</td>
@@ -52,8 +53,10 @@
                     <td th:text="*{engineNumber}">515265324</td>
                     <td th:text="*{bodyNumber}">0</td>
                     <td th:text="*{insurance}"></td>
-                    <td th:text="*{stolen}"></td>
+                    <td th:text="*{stolen == null || stolen == false} ? 'Nie' : 'Tak'"></td>
                     <td th:text="*{inspection}"></td>
+                    <td th:if="*{stolen == null || stolen == false}"><input class="setStolen btn btn-primary" type="button" value="Ustaw jako kradziony"/></td>
+                    <td th:unless="*{stolen == null || stolen == false}"><input class="setNoStolen btn btn-primary" type="button" value="Ustaw jako niekradziony"/></td>
                 </tr>
             </table>
         </form>
@@ -66,6 +69,28 @@
         </p>
     </div>
 </footer>
+<script>
+    $(".setStolen").on('click', function () {
+        var id = $(this).parent().parent().find('.idCar').text();
+        $.ajax({
+            url: '/car/stolen/' + id,
+            type: 'GET',
+            success: function(data) {
+                location.reload();
+            }
+        });
+    });
+    $(".setNoStolen").on('click', function () {
+        var id = $(this).parent().parent().find('.idCar').text();
+        $.ajax({
+            url: '/car/notStolen/' + id,
+            type: 'GET',
+            success: function(data) {
+                location.reload();
+            }
+        });
+    });
+</script>
 </body>
 </html>
 
