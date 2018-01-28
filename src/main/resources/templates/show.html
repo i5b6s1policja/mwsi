@@ -39,6 +39,7 @@
                 <!--<th>Numer telefonu</th>-->
                 <th>Punkty Karne</th>
                 <th>Numer prawa jazdy</th>
+                <th>Odebrane prawo jazdy</th>
             </tr>
             <tr th:each="driver: ${allDrivers}" th:object="${driver}">
                 <!--<tr th:object="${driver}">-->
@@ -50,6 +51,7 @@
                 <!--<td th:text="*{phoneNumber}">515265324</td>-->
                 <td th:text="*{penaltyPoints}">0</td>
                 <td th:text="*{drivingLicense}"></td>
+                <td th:text="*{drivingLicenseTaken == null || drivingLicenseTaken == false} ? 'Nie' : 'Tak'"></td>
                 <!--<td><input type="submit" value="Wybierz" /></td>-->
             </tr>
         </table>
