@@ -38,18 +38,15 @@ public class SearchController {
 
     @PostMapping("/findByPesel")
     public String show(@ModelAttribute Pesel pesel, Model model){
-        Driver driver = driverRepository.findByPesel(pesel.getPesel());
-        List<Driver> allDrivers = new ArrayList<>();
-        allDrivers.add(driver);
+        List<Driver> allDrivers = driverRepository.findByPesel(pesel.getPesel());
+
         model.addAttribute("allDrivers", allDrivers);
         return "show";
     }
 
     @RequestMapping("/findByDrivingLicense")
     public String show(@ModelAttribute DrivingLicense drivingLicense, Model model){
-        Driver driver = driverRepository.findByDrivingLicense(drivingLicense.getDrivinglicense());
-        List<Driver>allDrivers = new ArrayList<>();
-        allDrivers.add(driver);
+        List<Driver>allDrivers = driverRepository.findByDrivingLicense(drivingLicense.getDrivinglicense());
         model.addAttribute("allDrivers", allDrivers);
         return "show";
     }
