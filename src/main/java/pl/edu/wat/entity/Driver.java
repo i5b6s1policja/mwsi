@@ -32,4 +32,6 @@ public class Driver {
     String drivingLicense;
     @OneToMany
     List<Ticket> tickets;
+    @Column
+    Boolean drivingLicenseTaken;
 }
