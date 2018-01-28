@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>CEPIK - Policja - Lista wszystkich kierowców</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script th:src="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-left">
+            <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                    data-toggle="dropdown" role="button" aria-haspopup="true"
+                                    aria-expanded="false">Menu<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/">HOME</a></li>
+                    <li><a th:href="@{/search}">Wyszukaj kierowcę</a></li>
+                    <li><a th:href="@{/car}">Wyszukaj samochód</a></li>
+                </ul></li>
+        </ul>
+        <div class="navbar-header navbar-right">
+            <a class="navbar-brand" href="#"> CEPIK <i>Policja</i></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row col-12">
+        <h1>Samochód:</h1>
+        <form action="#" >
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Marka</th>
+                    <th>Model</th>
+                    <th>Nr VIN</th>
+                    <th>Numer rejestracyjny</th>
+                    <th>Numer silnika</th>
+                    <th>Numer nadwozia</th>
+                    <th>Ubezpieczenie</th>
+                    <th>Czy skradziony</th>
+                    <th>Badania techniczne</th>
+                </tr>
+                <tr th:object="${car}">
+                    <td th:text="*{id}">-1</td>
+                    <td th:text="*{brand}">Jan</td>
+                    <td th:text="*{model}">Kowalski</td>
+                    <td th:text="*{vin}">90122512456</td>
+                    <td th:text="*{plateNumber}">Address</td>
+                    <td th:text="*{engineNumber}">515265324</td>
+                    <td th:text="*{bodyNumber}">0</td>
+                    <td th:text="*{insurance}"></td>
+                    <td th:text="*{stolen}"></td>
+                    <td th:text="*{inspection}"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <p class="navbar-text">
+            © 2017 CEPIK - Policja
+        </p>
+    </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

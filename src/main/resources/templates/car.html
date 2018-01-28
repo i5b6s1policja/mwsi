@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>CEPIK - Policja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script th:src="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-left">
+            <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                    data-toggle="dropdown" role="button" aria-haspopup="true"
+                                    aria-expanded="false">Menu<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/">HOME</a></li>
+                    <li><a th:href="@{/search}">Wyszukaj kierowcę</a></li>
+                    <li><a th:href="@{/car}">Wyszukaj samochód</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="navbar-header navbar-right">
+            <a class="navbar-brand" href="#"> CEPIK <i>Policja</i></a>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row col-12">
+
+        <form action="#" th:action="@{/car/findByPlateNumber}" method="post" th:object="${plateNumber}">
+            <table style="border: none">
+                <tr>
+                    <td><label th:text="'Numer rejestracyjny'"/></td>
+                    <td><input class="form-control" type="text" th:field="*{plateNumber}"/></td>
+                </tr>
+                <tr>
+                    <td><input class="btn btn-primary" type="submit" value="Szukaj"/></td>
+                </tr>
+            </table>
+        </form>
+        <form action="#" th:action="@{/car/findByVIN}" method="post" th:object="${vin}">
+            <table style="border: none">
+                <tr>
+                    <td><label th:text="'Numer VIN'"/></td>
+                    <td><input class="form-control" type="text" th:field="*{vin}"/></td>
+                </tr>
+                <tr>
+                    <td><input class="btn btn-primary" type="submit" value="Szukaj"/></td>
+                </tr>
+            </table>
+        </form>
+        <form action="#" th:action="@{/car/findByEngineNumber}" method="post" th:object="${engineNumber}">
+            <table style="border: none">
+                <tr>
+                    <td><label th:text="'Numer Silnika'"/></td>
+                    <td><input class="form-control" type="text" th:field="*{engineNumber}"/></td>
+                </tr>
+                <tr>
+                    <td><input class="btn btn-primary" type="submit" value="Szukaj"/></td>
+                </tr>
+            </table>
+        </form>
+        <form action="#" th:action="@{/car/findByBodyNumber}" method="post" th:object="${bodyNumber}">
+            <table style="border: none">
+                <tr>
+                    <td><label th:text="'Numer Nadwozia'"/></td>
+                    <td><input class="form-control" type="text" th:field="*{bodyNumber}"/></td>
+                </tr>
+                <tr>
+                    <td><input class="btn btn-primary" type="submit" value="Szukaj"/></td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</div>
+
+
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <p class="navbar-text">
+            © 2017 CEPIK - Policja
+        </p>
+    </div>
+</footer>
+</body>
+</html>
+
+
