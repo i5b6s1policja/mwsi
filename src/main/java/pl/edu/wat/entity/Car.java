@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 import pl.edu.wat.enums.Brand;
 import pl.edu.wat.enums.Model;
 
@@ -19,6 +20,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@TableGenerator(name="tab", initialValue=10000)
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)

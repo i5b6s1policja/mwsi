@@ -122,4 +122,10 @@ public class CarController {
         carRepository.save(car);
         return "home";
     }
+    @GetMapping("/delete/{id}")
+    public String deleteCar(@PathVariable("id") Long id){
+        Car car = carRepository.findOne(id);
+        carRepository.delete(car);
+        return "home";
+    }
 }
