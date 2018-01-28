@@ -39,10 +39,12 @@
                 <!--<th>Numer telefonu</th>-->
                 <th>Punkty Karne</th>
                 <th>Numer prawa jazdy</th>
+                <th>Odebrane prawo jazdy</th>
+                <th>Zatrzymaj prawo jazdy</th>
             </tr>
             <tr th:each="driver: ${allDrivers}" th:object="${driver}">
                 <!--<tr th:object="${driver}">-->
-                <td th:text="*{id}">-1</td>
+                <td class="idDriver" th:text="*{id}">-1</td>
                 <td th:text="*{name}">Jan</td>
                 <td th:text="*{surname}">Kowalski</td>
                 <td th:text="*{pesel}">90122512456</td>
@@ -50,6 +52,9 @@
                 <!--<td th:text="*{phoneNumber}">515265324</td>-->
                 <td th:text="*{penaltyPoints}">0</td>
                 <td th:text="*{drivingLicense}"></td>
+                <td class="licenseTaken" th:text="*{drivingLicenseTaken == null || drivingLicenseTaken == false} ? 'Nie' : 'Tak'"></td>
+                <td th:if="*{drivingLicenseTaken == null || drivingLicenseTaken == false}"><input class="stopLicense btn btn-primary" type="button" value="Zatrzymaj"/></td>
+                <td th:unless="*{drivingLicenseTaken == null || drivingLicenseTaken == false}"><input class="giveLicense btn btn-primary" type="button" value="Oddaj"/></td>
                 <!--<td><input type="submit" value="Wybierz" /></td>-->
             </tr>
         </table>
@@ -63,6 +68,28 @@
         </p>
     </div>
 </footer>
+<script>
+    $(".stopLicense").on('click', function () {
+        var id = $(this).parent().parent().find('.idDriver').text();
+        $.ajax({
+            url: '/license/stop/' + id,
+            type: 'GET',
+            success: function(data) {
+                location.reload();
+            }
+        });
+    });
+    $(".giveLicense").on('click', function () {
+        var id = $(this).parent().parent().find('.idDriver').text();
+        $.ajax({
+            url: '/license/give/' + id,
+            type: 'GET',
+            success: function(data) {
+                location.reload();
+            }
+        });
+    });
+</script>
 </body>
 </html>
 
