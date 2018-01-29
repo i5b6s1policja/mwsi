@@ -77,7 +77,7 @@
     $(".stopLicense").on('click', function () {
         var id = $(this).parent().parent().find('.idDriver').text();
         $.ajax({
-            url: '/license/stop/' + id,
+            url: '/mwsi/license/stop/' + id,
             type: 'GET',
             success: function(data) {
                 location.reload();
@@ -87,7 +87,7 @@
     $(".giveLicense").on('click', function () {
         var id = $(this).parent().parent().find('.idDriver').text();
         $.ajax({
-            url: '/license/give/' + id,
+            url: '/mwsi/license/give/' + id,
             type: 'GET',
             success: function(data) {
                 location.reload();

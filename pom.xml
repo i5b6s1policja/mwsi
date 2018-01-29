@@ -5,7 +5,7 @@
 
 	<groupId>pl.edu.wat</groupId>
 	<artifactId>mwsi</artifactId>
-	<version>1.2.1-RELEASE</version>
+	<version>1.2.2-RELEASE</version>
     <packaging>war</packaging>
 
 	<name>mwsi</name>
