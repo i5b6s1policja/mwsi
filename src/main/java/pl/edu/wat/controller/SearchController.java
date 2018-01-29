@@ -3,10 +3,7 @@ package pl.edu.wat.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.edu.wat.entity.Driver;
 import pl.edu.wat.model.DrivingLicense;
 import pl.edu.wat.model.NameAndSurname;
@@ -55,6 +52,16 @@ public class SearchController {
     public String show(@ModelAttribute NameAndSurname nameAndSurname, Model model){
 
         List<Driver> drivers = driverRepository.findByNameAndSurname(nameAndSurname.getName(), nameAndSurname.getSurname());
+
+        model.addAttribute("allDrivers", drivers);
+        return "show";
+    }
+
+    @RequestMapping("/find/{id}")
+    public String showById(@PathVariable("id")Long driverId, Model model){
+        Driver driver = driverRepository.getOne(driverId);
+        List<Driver> drivers = new ArrayList<>();
+        drivers.add(driver);
 
         model.addAttribute("allDrivers", drivers);
         return "show";
