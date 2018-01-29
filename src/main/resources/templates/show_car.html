@@ -75,7 +75,7 @@
     $(".setStolen").on('click', function () {
         var id = $(this).parent().parent().find('.idCar').text();
         $.ajax({
-            url: '/car/stolen/' + id,
+            url: '/mwsi/car/stolen/' + id,
             type: 'GET',
             success: function(data) {
                 location.reload();
@@ -85,7 +85,7 @@
     $(".setNoStolen").on('click', function () {
         var id = $(this).parent().parent().find('.idCar').text();
         $.ajax({
-            url: '/car/notStolen/' + id,
+            url: '/mwsi/car/notStolen/' + id,
             type: 'GET',
             success: function(data) {
                 location.reload();
@@ -95,7 +95,7 @@
     $(".deleteCar").on('click', function () {
         var id = $(this).parent().parent().find('.idCar').text();
         $.ajax({
-            url: '/car/delete/' + id,
+            url: '/mwsi/car/delete/' + id,
             type: 'GET',
             success: function(data) {
                 location.reload();
